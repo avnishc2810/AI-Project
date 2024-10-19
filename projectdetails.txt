@@ -1,0 +1,80 @@
+---Input---
+
+For input of DNA sequences, FASTA files can be used. FASTA (Fast-All) is a text-based format used for representing nucleotide sequences. The typical format   looks as given below:
+1. Header line
+2. Sequence Data
+eg: >Sequence Homo sapiens mitochondrial DNA
+    ATCGAGTCCTA.......
+
+---Theory---
+In this project, we will try to identify the specie to which the given DNA belongs. For a simple classification model, we can consider the following species:
+1.Homo sapiens (Human)
+2.Pan troglodytes (Chimpanzee)
+3.Mus musculus (Mouse)
+4.Drosophila melanogaster (Fruit Fly)
+5.Escherichia coli (Bacteria)
+
+---Logic---
+1. To encode the inputted DNA sequences, we can use one-hot encoding(converts each nucleotide into a binary vector) or k-mer counting(counts occurrences of      k-length subsequences; eg: 3-mers like ATG)
+2. We will need to remove ambiguous (eg: N) from the DNA sequences to make them valid. This can be done by parsing the FASTA file sequences.  
+3. After encoding the DNA sequences, the encoded input must be fed to the model. We can use Convolution Neural Networks for complex patterns. 
+4. The collected data can be used for both testing and training the model. (eg: can allocate 20% to testing and 80% to training).
+5. The performance of the model can be meausred on the metrics like accuracy, precision, recall, F1-score.
+
+
+---File Structure---
+dna-sequence-classification/
+│
+├── data/
+│   ├── raw/
+│   │   ├── human.fasta
+│   │   ├── chimpanzee.fasta
+│   │   ├── mouse.fasta
+│   │   ├── fruit_fly.fasta
+│   │   └── bacteria.fasta
+│   ├── processed/
+│   │   
+│   │   ├── kmer_counts.csv               # k-mer counts for sequences
+│   │                   
+│   └── README.md
+│
+├── notebooks/
+│   ├── cnn_model.ipynb                 # Jupyter notebook for CNN model development
+│   ├── rnn_lstm_model.ipynb            # Jupyter notebook for RNN (LSTM) model development
+│   └── evaluation.ipynb                # Jupyter notebook for evaluating and comparing models
+│
+├── scripts/
+│   ├── preprocess_data.py              # Script to preprocess data and generate input for CNN/RNN
+│   ├── cnn_model.py                    # Script to define and train the CNN model
+│   ├── rnn_lstm_model.py               # Script to define and train the RNN (LSTM) model
+│   ├── evaluate_model.py               # Script to evaluate the trained models
+│   └── utils.py                        # Utility functions for handling data and other tasks
+│
+├── models/
+│   ├── cnn_model.h5                    # Saved CNN model
+│   ├── rnn_lstm_model.h5               # Saved RNN (LSTM) model
+│   └── model_checkpoints/              # Checkpoints for models during training
+│
+├── results/
+│   ├── cnn_performance.png             # Performance plots for CNN model
+│   ├── rnn_lstm_performance.png        # Performance plots for RNN (LSTM) model
+│   ├── confusion_matrix_cnn.png        # Confusion matrix for CNN
+│   ├── confusion_matrix_rnn_lstm.png   # Confusion matrix for RNN (LSTM)
+│   └── model_comparison.csv            # Comparison of CNN and RNN models
+│
+├── environment.yml or requirements.txt  # List of dependencies for the project
+│
+├── README.md                           # Project overview, setup instructions, etc.
+│
+└── .gitignore                          # Files and directories to be ignored by Git
+
+
+13/10 Sunday - CN Project meet
+14/10 Monday DBMS - data preprocessing
+15/10 Tuesday SE Lab - CNN research and coding
+16/10 Wednesday After PSE Tut 330 to 430 - CNN continuation (try to finish coding)
+16/10 Wednesday After PSE Tut 430 to 500 - CN project discussion
+17/10 Thursday SE Tut, DBMS Lec - RNN, LSTM research
+18/10 Friday SE Tut, DBMS Lec - RNN, LSTM continuation
+
+
