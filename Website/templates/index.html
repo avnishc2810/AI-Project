@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        body {
+            background-image: url('/static/dow.jpg'); /* Path to your image */
+            height: 100vh;
+            width: 100vw;
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents tiling of the image */
+            background-position: center; /* Centers the image */
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Horizontally center content */
+            align-items: center; /* Vertically center content */
+        }
+
+        .content {
+            text-align: center; /* Center text inside the content */
+            background: rgba(4, 11, 73, 0.8); /* Optional: Add a semi-transparent background */
+            padding: 20px;
+            border-radius: 10px; /* Optional: Rounded corners for the container */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Add some space below the heading */
+            font-size: 50px;
+            color: #060330;
+        }
+
+        .search-form {
+            display: flex; /* Align input and button side by side */
+            gap: 10px; /* Add space between the input and button */
+        }
+
+        .search-form input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #060330;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+    <div><h1>DNA CLASSIFICATION</h1></div>
+    <div class="content">
+        
+        <form action="#" class="search-form" method="post" enctype="multipart/form-data">
+            <label for="fasta" style="color: azure;font-size: 24px;">Upload A File </label>
+            <input id="fasta" name="hello" type="file" style="color: azure;" />
+            <button class="material-symbols-outlined" type="sumbit">Upload</button>
+        </form>
+        
+    </div>
+</div>
+</body>
+</html>
